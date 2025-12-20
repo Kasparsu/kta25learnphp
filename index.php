@@ -1,44 +1,27 @@
 <?php
 
-function hello() {
-    var_dump('hello');
-}
+class Box {
+    public $width;
+    public $height;
+    public $length;
 
-hello();
-
-function helloName($name='Nameless') {
-    var_dump("Hello $name!");
-}
-
-helloName('Kaspar');
-helloName('Martin');
-helloName();
-
-function sum($a, $b) {
-    return $a+$b;
-    var_dump('asdasd');
-}
-
-$answer = sum(2, 4);
-var_dump($answer);
-
-function values(...$values) {
-        var_dump(...$values);
-}
-
-values(1, 2, 3, 4, 5, 6);
-
-function name(string $name):string {
-    return ucwords($name);
-}
-
-//name(['asd']);
-
-function recursive($i) {
-    var_dump($i);
-    if($i < 10){
-        recursive($i+1);
+    public function volume() {
+        return $this->width * $this->height * $this->length;
     }
 }
 
-recursive(0);
+$box1 = new Box();
+$box1->width = 10;
+$box1->height = 10;
+$box1->length = 10;
+var_dump($box1->volume());
+var_dump($box1);
+
+$box2 = new Box();
+$box2->width = 20;
+$box2->height = 20;
+$box2->length = 20;
+var_dump($box2->volume());
+var_dump($box2);
+
+var_dump($box1);
