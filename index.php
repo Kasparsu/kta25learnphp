@@ -1,33 +1,46 @@
 <?php
 
-class Box {
-    public static $count;
-    public $width;
-    public static function getCount() {
-        var_dump(self::class);
-        var_dump(self::$count);
-        var_dump(static::class);
-        var_dump(static::$count);
-        //var_dump($this->width);
-    }
-    public function getWidth(){
-         var_dump(self::class);
-        var_dump(self::$count);
-        var_dump(static::class);
-        var_dump(static::$count);
-        var_dump($this->width);
+// library
+
+class Job {
+    public function task(Logger $logger) {
+        for($i=0;$i<10;$i++) {
+            // some complex task
+            $logger->log("Task $i done");
+        }
     }
 }
-class MetalBox extends Box {
 
+class ConsoleLogger implements Logger {
+    public function log($message) {
+        echo "$message\n";
+    }
+}
+
+interface Logger {
+    public function log($message);
 }
 
 
-Box::$count = 1;
-Box::$count = 2;
-var_dump(Box::$count, Box::$count);
-Box::getCount();
-var_dump(Box::class);
-MetalBox::getCount();
-$box1 = new Box();
-$box1->getWidth();
+
+
+// user 
+
+
+class NothingLogger implements Logger {
+    public function log($message) {
+        
+    }
+}
+
+class FileLogger implements Logger {
+    public function log($message) {
+        $file = fopen('log.log', 'a');
+        fwrite($file, "$message\n");
+        fclose($file);
+    }
+}
+
+$job = new Job();
+$logger = new FileLogger();
+$job->task($logger);
