@@ -45,10 +45,19 @@ class Box {
 }
 
 class MetalBox extends Box {
+    use HasSmell;
     public $weightPerUnit;
 
     public function weight() {
         return $this->volume() * $this->weightPerUnit;
+    }
+}
+
+trait HasSmell {
+    public $smell;
+
+    public function sniff(){
+        var_dump($this->smell);
     }
 }
 
