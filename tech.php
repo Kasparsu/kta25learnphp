@@ -4,6 +4,7 @@
 
 
   <main class="container">
+    <?php $title = 'Tech News'; ?>
     <?php include 'partials/hero.php'; ?>
     <?php include 'partials/featured.php'; ?>
     

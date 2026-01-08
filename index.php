@@ -2,8 +2,8 @@
 <?php include 'partials/theme-select.php'; ?>
 <?php include 'partials/nav.php'; ?>
 
-
   <main class="container">
+    <?php $title = 'World News'; ?>
     <?php include 'partials/hero.php'; ?>
     <?php include 'partials/featured.php'; ?>
     
