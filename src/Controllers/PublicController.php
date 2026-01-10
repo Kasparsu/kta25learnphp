@@ -27,4 +27,13 @@ class PublicController
         $age = 32;
         view('templating', compact('name', 'age'));
     }
+
+    public function form() {
+        
+        $name = $_GET['name'] ?? 'Nameless';
+        $age = $_GET['age'] ?? 'Ageless';
+        
+        
+        view('form', compact('name', 'age'));
+    }
 }
