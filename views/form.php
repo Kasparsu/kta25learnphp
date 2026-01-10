@@ -4,9 +4,10 @@
 
 <main class="container">
   <h1>Hello <?= $name ?>! You are <?= $age ?> years young!</h1>
-  <form>
+  <form action="/answer?name=green&music=metal" method="POST">
     <input name="name" type="text">
     <input name="age" type="number">
+    <input name="pass" type="password">
     <button>Send</button>
     <input type="submit" value="Send2">
   </form>
